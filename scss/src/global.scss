@@ -12,11 +12,11 @@
  =                   Foundations               =
  ============================================= */
 
-@import 'foundation/all';
+@use 'foundation/all';
 
 /* ==============================================
   =                   Base                      =
   ============================================= */
 
-@import 'base/reset';
-@import 'base/root';
+@use 'base/reset';
+@use 'base/root';

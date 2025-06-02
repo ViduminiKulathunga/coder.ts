@@ -40,3 +40,8 @@
 #
 #     - script: "hello.go"
 #       runner: go run
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      run: npx lint-staged

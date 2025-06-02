@@ -7,6 +7,8 @@
  * we defined in the _variable.scss file. This is our default palette, and devs can override this
  * with their own variables.
  */
+ 
+ @use './variables' as *;
 
 /* =============================================
 =            Global text colors               =

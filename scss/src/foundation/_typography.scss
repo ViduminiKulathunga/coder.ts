@@ -7,6 +7,8 @@
  * from the palette defined in _variables.scss.
  */
 
+ @use './variables' as *;
+
 /* =============================================
 =            Body font family                  =
 ============================================= */

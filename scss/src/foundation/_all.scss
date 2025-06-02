@@ -1,4 +1,4 @@
-@import './colors';
-@import './variables';
-@import './typography';
-@import './mixins';
+@use './variables' as *;
+@use './colors' as *;
+@use './typography' as *;
+@use './mixins' as *;

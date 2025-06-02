@@ -8,7 +8,8 @@
 		"format": "biome format . --write",
 		"lint": "biome check . && stylelint './**/*.scss'",
 		"lint:fix": "stylelint './**/*.scss' --fix",
-		"prepare": "lefthook install"
+		"prepare": "lefthook install",
+		"build": "node src/scripts/build.js"
 	},
 	"lint-staged": {
 		"*.{js,ts,jsx,tsx,json,md}": "biome format --write",
@@ -33,6 +34,7 @@
 		"@biomejs/biome": "^1.9.4",
 		"lefthook": "^1.11.13",
 		"lint-staged": "^16.1.0",
+		"sass": "^1.89.1",
 		"stylelint": "^16.20.0",
 		"stylelint-config-standard-scss": "^15.0.1",
 		"stylelint-prettier": "^1.2.0",
