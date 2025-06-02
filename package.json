@@ -30,15 +30,17 @@
   },
   "homepage": "https://github.com/ViduminiKulathunga/coder.ts#readme",
   "dependencies": {
-    "normalize-scss": "^8.0.0",
-    "prettier": "^3.5.3",
-    "stylelint": "^16.20.0",
-    "stylelint-config-prettier": "^9.0.5",
-    "stylelint-config-sass-guidelines": "^12.1.0",
-    "stylelint-prettier": "^5.0.3"
+    "normalize-scss": "^8.0.0"
   },
   "devDependencies": {
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.0"
+    "lint-staged": "^16.1.0",
+    "node-sass": "^9.0.0",
+    "prettier": "^2.8.8",
+    "stylelint": "^14.16.1",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "stylelint-prettier": "^2.0.0",
+    "stylelint-scss": "^4.5.0"
   }
 }

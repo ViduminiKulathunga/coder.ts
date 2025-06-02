@@ -114,7 +114,8 @@ $breakpoints: (
   // 768px
   lg: 64rem,
   // 1024px
-  xl: 80rem, // 1280px
+  xl: 80rem,
+  // 1280px
 );
 
 /*=====  End of Breakpoints  ======*/
@@ -141,15 +142,12 @@ $spacing: (
   // 48px
   xxl: 4.5rem,
   // 72px
-  xxxl: 6rem, // 96px
+  xxxl: 6rem,
+  // 96px
 ) !default;
 
 $shadows: (
-  base: 0px 4px 11px rgba(157, 157, 157, 0.21),
+  base: 0 4px 11px rgba(157, 157, 157, 0.21),
 );
-
-.body{
-  
-}
 
 /*=====  End of Spacing  ======*/
