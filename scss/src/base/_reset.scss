@@ -8,4 +8,8 @@
  * https://necolas.github.io/normalize.css/
  */
 
-@use '../../node_modules/normalize-scss/sass/normalize/import-now';
+// @import '~modern-normalize/modern-normalize.css';
+
+// @use '../base/modern-normalize' as *;
+
+@import "modern-normalize/modern-normalize.css";
