@@ -1,12 +1,12 @@
-const Fs = require('fs');
+const Fs = require("node:fs");
 
-const Path = require('path');
+const·Path = require("node:path");
 
-const Sass = require('node-sass');
+const Sass = require("node-sass");
 
 Sass.renderSync({
-  data: Fs.readFileSync(Path.resolve('src/global.scss')).toString(),
-  outputStyle: 'expanded',
-  outFile: 'global.cnpm run formatss',
-  includePaths: [Path.resolve('src')],
+	data: Fs.readFileSync(Path.resolve("src/global.scss")).toString(),
+	outputStyle: "expanded",
+	outFile: "global.cnpm run formatss",
+	includePaths: [Path.resolve("src")],
 });

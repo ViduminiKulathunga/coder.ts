@@ -1,45 +1,41 @@
 {
-  "name": "@coder.ts/scss",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier '**/*.{ts,tsx,scss,json,md}' --write",
-    "prepare": "husky install",
-    "lint": "stylelint './**/*.scss'",
-    "lint:fix": "stylelint './**/*.scss' --fix"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.scss": "npm run lint:fix"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ViduminiKulathunga/coder.ts.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/ViduminiKulathunga/coder.ts/issues"
-  },
-  "homepage": "https://github.com/ViduminiKulathunga/coder.ts#readme",
-  "dependencies": {
-    "normalize-scss": "^8.0.0"
-  },
-  "devDependencies": {
-    "husky": "^9.1.7",
-    "lint-staged": "^16.1.0",
-    "node-sass": "^9.0.0",
-    "prettier": "^3.5.3",
-    "stylelint": "^14.16.1",
-    "stylelint-config-sass-guidelines": "^9.0.1",
-    "stylelint-scss": "^4.5.0"
-  }
+	"name": "@coder.ts/scss",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"format": "biome format . --write",
+		"lint": "biome check . && stylelint './**/*.scss'",
+		"lint:fix": "stylelint './**/*.scss' --fix",
+		"prepare": "lefthook install"
+	},
+	"lint-staged": {
+		"*.{js,ts,jsx,tsx,json,md}": "biome format --write",
+		"*.scss": "stylelint --fix"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ViduminiKulathunga/coder.ts.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"bugs": {
+		"url": "https://github.com/ViduminiKulathunga/coder.ts/issues"
+	},
+	"homepage": "https://github.com/ViduminiKulathunga/coder.ts#readme",
+	"dependencies": {
+		"normalize-scss": "^8.0.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"lefthook": "^1.11.13",
+		"lint-staged": "^16.1.0",
+		"stylelint": "^16.20.0",
+		"stylelint-config-standard-scss": "^15.0.1",
+		"stylelint-prettier": "^1.2.0",
+		"stylelint-scss": "^6.12.0"
+	}
 }
