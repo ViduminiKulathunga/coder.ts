@@ -2,12 +2,6 @@ const fs = require("node:fs");
 const path = require("node:path");
 const sass = require("sass");
 
-const normalizeCSSPath = require.resolve(
-	"modern-normalize/modern-normalize.css",
-);
-const normalizeCSS = fs.readFileSync(normalizeCSSPath, "utf8");
-
-
 const getComponents = () => {
 	let allComponents = [];
 	const types = ["atoms", "molecules", "organisom"];
@@ -30,10 +24,8 @@ const compile = (pathFile, fileName) => {
 		loadPaths: [path.resolve("src"), path.resolve("node_modules")],
 	});
 
-	const finalCSS = `${normalizeCSS}\n\n${sassResult.css.toString()}`;
-
 	fs.mkdirSync(path.dirname(fileName), { recursive: true });
-	fs.writeFileSync(fileName, finalCSS);
+	fs.writeFileSync(fileName, sassResult.css.toString());
 };
 
 const pathFile = path.resolve("src/global.scss");
