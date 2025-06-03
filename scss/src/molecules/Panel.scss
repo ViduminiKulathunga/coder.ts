@@ -1,6 +1,6 @@
-@use "foundation/all";
+@use '../foundation/variables' as *;
 
-.dse-panel--container{
+.dse-panel-container{
     display: flex;
     position: absolute;
 }

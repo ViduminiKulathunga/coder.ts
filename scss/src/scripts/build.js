@@ -2,24 +2,27 @@ const fs = require("node:fs");
 const path = require("node:path");
 const sass = require("sass");
 
-const normalizeCSSPath = require.resolve(
-	"modern-normalize/modern-normalize.css",
-);
-const normalizeCSS = fs.readFileSync(normalizeCSSPath, "utf8");
-
-
 const getComponents = () => {
 	let allComponents = [];
 	const types = ["atoms", "molecules", "organisom"];
 
-	types.forEach((type) => {
-		const allFiles = fs.readdirSync(`src/${type}`).map((file) => ({
-			input: `src/${type}/${file}`,
-			output: `src/lib/${file.slice(0, -4) + "css"}`,
+	for (const type of types) {
+		const dirPath = path.resolve(__dirname, `../${type}`);
+		if (!fs.existsSync(dirPath)) continue;
+
+		const files = fs
+			.readdirSync(dirPath)
+			.filter((file) => file.endsWith(".scss"));
+		const allFiles = files.map((file) => ({
+			input: path.resolve(dirPath, file),
+			output: path.resolve(
+				__dirname,
+				`../lib/${file.replace(/\.scss$/, ".css")}`,
+			),
 		}));
 
 		allComponents = [...allComponents, ...allFiles];
-	});
+	}
 
 	return allComponents;
 };
@@ -27,20 +30,19 @@ const getComponents = () => {
 const compile = (pathFile, fileName) => {
 	const sassResult = sass.compile(pathFile, {
 		style: "expanded",
-		loadPaths: [path.resolve("src"), path.resolve("node_modules")],
+		loadPaths: [path.resolve(__dirname, "../"), path.resolve("node_modules")],
 	});
 
-	const finalCSS = `${normalizeCSS}\n\n${sassResult.css.toString()}`;
-
 	fs.mkdirSync(path.dirname(fileName), { recursive: true });
-	fs.writeFileSync(fileName, finalCSS);
+	fs.writeFileSync(fileName, sassResult.css.toString());
 };
 
-const pathFile = path.resolve("src/global.scss");
-const fileName = path.resolve("src/lib/global.css");
+const pathFile = path.resolve(__dirname, "../global.scss");
+const fileName = path.resolve(__dirname, "../lib/global.css");
 
 compile(pathFile, fileName);
 
-getComponents().forEach((component) => {
+const components = getComponents();
+for (const component of components) {
 	compile(component.input, component.output);
-});
+}
