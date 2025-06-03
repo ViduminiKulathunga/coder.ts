@@ -7,9 +7,9 @@ const getComponents = () => {
 	const types = ["atoms", "molecules", "organisom"];
 
 	for (const type of types) {
-		const allFiles = fs.readdirSync(`src/${type}`).map((file) => ({
-			input: `src/${type}/${file}`,
-			output: `src/lib/${file.slice(0, -4)}.css`,
+		const allFiles = fs.readdirSync(`scss/src/${type}`).map((file) => ({
+			input: `scss/src/${type}/${file}`,
+			output: `scss/src/lib/${file.slice(0, -4)}.css`,
 		}));
 
 		allComponents = [...allComponents, ...allFiles];
@@ -21,15 +21,15 @@ const getComponents = () => {
 const compile = (pathFile, fileName) => {
 	const sassResult = sass.compile(pathFile, {
 		style: "expanded",
-		loadPaths: [path.resolve("src"), path.resolve("node_modules")],
+		loadPaths: [path.resolve("scss/src"), path.resolve("node_modules")],
 	});
 
 	fs.mkdirSync(path.dirname(fileName), { recursive: true });
 	fs.writeFileSync(fileName, sassResult.css.toString());
 };
 
-const pathFile = path.resolve("src/global.scss");
-const fileName = path.resolve("src/lib/global.css");
+const pathFile = path.resolve("scss/src/global.scss");
+const fileName = path.resolve("scss/src/lib/global.css");
 
 compile(pathFile, fileName);
 

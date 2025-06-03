@@ -3,12 +3,12 @@
 ============================================= */
 /**
  * TABLE OF CONTENTS
- *
+ * 
  * COLORS
  * Brand colors...................These are the main brand colors. They will be used the most
  * Neutral colors.................White and black, gray scale, secondary colors.
  * Utility colors.................Other colors to represent states: info, warning, success, etc.
- *
+ * 
  * TYPOGRAPHY
  * Font families..................The fonts used in the design system.
  * Font weights...................Font weights
@@ -55,5 +55,5 @@
 ============================================= */
 /* =====  End of Spacing  ====== */
 .dse-button-container {
-	display: flex;
+  display: flex;
 }

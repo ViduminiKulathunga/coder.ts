@@ -9,11 +9,11 @@
 		"lint": "biome check . && stylelint './**/*.scss'",
 		"lint:fix": "stylelint './**/*.scss' --fix",
 		"prepare": "lefthook install",
-		"build": "node src/scripts/build.js"
+		"build": "node scss/src/scripts/build.js"
 	},
 	"lint-staged": {
 		"**/*.{js,ts,jsx,tsx,json,md}": "biome format --write",
-  		"**/*.scss": "stylelint --fix"
+		"**/*.scss": "stylelint --fix"
 	},
 	"repository": {
 		"type": "git",
@@ -32,6 +32,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
+		"lefthook": "^1.11.13",
 		"lint-staged": "^16.1.0",
 		"sass": "^1.89.1",
 		"stylelint": "^16.20.0",
