@@ -7,9 +7,18 @@ const getComponents = () => {
 	const types = ["atoms", "molecules", "organisom"];
 
 	for (const type of types) {
-		const allFiles = fs.readdirSync(`scss/src/${type}`).map((file) => ({
-			input: `scss/src/${type}/${file}`,
-			output: `scss/src/lib/${file.slice(0, -4)}.css`,
+		const dirPath = path.resolve(__dirname, `../${type}`);
+		if (!fs.existsSync(dirPath)) continue;
+
+		const files = fs
+			.readdirSync(dirPath)
+			.filter((file) => file.endsWith(".scss"));
+		const allFiles = files.map((file) => ({
+			input: path.resolve(dirPath, file),
+			output: path.resolve(
+				__dirname,
+				`../lib/${file.replace(/\.scss$/, ".css")}`,
+			),
 		}));
 
 		allComponents = [...allComponents, ...allFiles];
@@ -21,15 +30,15 @@ const getComponents = () => {
 const compile = (pathFile, fileName) => {
 	const sassResult = sass.compile(pathFile, {
 		style: "expanded",
-		loadPaths: [path.resolve("scss/src"), path.resolve("node_modules")],
+		loadPaths: [path.resolve(__dirname, "../"), path.resolve("node_modules")],
 	});
 
 	fs.mkdirSync(path.dirname(fileName), { recursive: true });
 	fs.writeFileSync(fileName, sassResult.css.toString());
 };
 
-const pathFile = path.resolve("scss/src/global.scss");
-const fileName = path.resolve("scss/src/lib/global.css");
+const pathFile = path.resolve(__dirname, "../global.scss");
+const fileName = path.resolve(__dirname, "../lib/global.css");
 
 compile(pathFile, fileName);
 
