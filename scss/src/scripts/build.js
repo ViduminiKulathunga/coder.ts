@@ -6,14 +6,14 @@ const getComponents = () => {
 	let allComponents = [];
 	const types = ["atoms", "molecules", "organisom"];
 
-	types.forEach((type) => {
+	for (const type of types) {
 		const allFiles = fs.readdirSync(`src/${type}`).map((file) => ({
 			input: `src/${type}/${file}`,
-			output: `src/lib/${file.slice(0, -4) + "css"}`,
+			output: `src/lib/${file.slice(0, -4)}.css`,
 		}));
 
 		allComponents = [...allComponents, ...allFiles];
-	});
+	}
 
 	return allComponents;
 };
@@ -33,6 +33,7 @@ const fileName = path.resolve("src/lib/global.css");
 
 compile(pathFile, fileName);
 
-getComponents().forEach((component) => {
+const components = getComponents();
+for (const component of components) {
 	compile(component.input, component.output);
-});
+}
