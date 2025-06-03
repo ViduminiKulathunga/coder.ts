@@ -7,6 +7,7 @@ const normalizeCSSPath = require.resolve(
 );
 const normalizeCSS = fs.readFileSync(normalizeCSSPath, "utf8");
 
+
 const getComponents = () => {
 	let allComponents = [];
 	const types = ["atoms", "molecules", "organisom"];
