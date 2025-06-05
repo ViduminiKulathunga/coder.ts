@@ -30,7 +30,7 @@ const getComponents = () => {
 const compile = (pathFile, fileName) => {
 	const sassResult = sass.compile(pathFile, {
 		style: "expanded",
-		loadPaths: [path.resolve(__dirname, "../"), path.resolve("node_modules")],
+		loadPaths: [path.resolve(__dirname, "../"), path.resolve(__dirname, "../../../../node_modules")],
 	});
 
 	fs.mkdirSync(path.dirname(fileName), { recursive: true });

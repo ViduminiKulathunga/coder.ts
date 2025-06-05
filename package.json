@@ -1,43 +1,20 @@
 {
-	"name": "@coder.ts/scss",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"format": "biome format . --write",
-		"lint": "biome check . && stylelint './**/*.scss'",
-		"lint:fix": "stylelint './**/*.scss' --fix",
-		"prepare": "lefthook install",
-		"build": "node scss/src/scripts/build.js"
-	},
-	"lint-staged": {
-		"**/*.{js,ts,jsx,tsx,json,md}": "biome format --write",
-		"**/*.scss": "stylelint --fix"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/ViduminiKulathunga/coder.ts.git"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"type": "commonjs",
-	"bugs": {
-		"url": "https://github.com/ViduminiKulathunga/coder.ts/issues"
-	},
-	"homepage": "https://github.com/ViduminiKulathunga/coder.ts#readme",
-	"dependencies": {
-		"modern-normalize": "^3.0.1"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
-		"lefthook": "^1.11.13",
-		"lint-staged": "^16.1.0",
-		"sass": "^1.89.1",
-		"stylelint": "^16.20.0",
-		"stylelint-config-standard-scss": "^15.0.1",
-		"stylelint-prettier": "^1.2.0",
-		"stylelint-scss": "^6.12.0"
-	}
+  "name": "@coder.ts/core",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "ViduminiKulathunga",
+  "license": "ISC",
+  "private": true,
+  "workspaces": {
+    "packages":["packages/*"],
+    "nohoist": [
+      "**/modern-normalize"
+    ]
+  },
+  "scripts": {
+    "build": "lerna run build"
+  },
+  "devDependencies": {
+    "lerna": "^8.2.2"
+  }
 }
