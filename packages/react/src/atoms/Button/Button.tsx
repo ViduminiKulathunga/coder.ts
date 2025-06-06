@@ -7,7 +7,7 @@ interface ButtonProps {
 const Button: React.FunctionComponent<ButtonProps> = ({ label }) => {
 
     return (
-        <button>{label}</button>
+        <button className="dse-button-container">{label}</button>
     );
 }
 

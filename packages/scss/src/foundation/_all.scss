@@ -1,4 +1,4 @@
-@use './variables' as *;
-@use './colors' as *;
-@use './typography' as *;
-@use './mixins' as *;
+@forward './variables';
+@forward './colors';
+@forward './typography';
+@forward './mixins';
