@@ -15,7 +15,8 @@
     ]
   },
   "scripts": {
-    "build": "lerna run build"
+    "build": "lerna run build",
+    "dev": "lerna run dev"
   },
   "devDependencies": {
     "lerna": "^8.2.2",
