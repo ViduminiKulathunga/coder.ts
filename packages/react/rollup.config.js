@@ -10,7 +10,7 @@ export default {
         dir: "lib",
         format: "esm",
         sourcemap: true,
-        preserveModules: true
+        preserveModules: true,
     },
     plugins: [Ts()],
     watch: {
