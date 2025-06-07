@@ -15,7 +15,7 @@ root.render(
         <div>
             <Margin left space="xxl">
                 <Text size="xl">
-                    Hello World!!
+                    Welcome to Moon 🌕!
                 </Text>
             </Margin>
         </div>
