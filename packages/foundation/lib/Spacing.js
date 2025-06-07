@@ -18,7 +18,4 @@ const spaces = {
     xxxl: "xxxl",
     // 96px
 };
-var Spacing = Object.freeze(spaces);
-
-export { Spacing as default };
-//# sourceMappingURL=Spacing.js.map
+export default Object.freeze(spaces);
