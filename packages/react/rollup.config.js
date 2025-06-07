@@ -13,5 +13,8 @@ export default {
         preserveModules: true
     },
     plugins: [Ts()],
+    watch: {
+        include: 'src/**',
+    },
     external: ['react', 'react-dom']
 }
