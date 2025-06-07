@@ -1,7 +1,11 @@
 @use '../foundation/all' as *;
 
-@each $size, $value in $fs{
-    .dse-text-#{$size}{
+.dse-text {
+    margin: 0;
+}
+
+@each $size, $value in $fs {
+    .dse-text-#{$size} {
         font-size: $value;
     }
 }

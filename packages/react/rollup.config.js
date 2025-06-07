@@ -6,6 +6,7 @@ export default {
         "src/atoms/Button/index.ts",
         "src/atoms/Color/index.ts",
         "src/atoms/Text/index.ts",
+        "src/atoms/Margin/index.ts",
     ],
     output: {
         dir: "lib",
@@ -17,5 +18,5 @@ export default {
     watch: {
         include: 'src/**',
     },
-    external: ['react', 'react-dom']
+    external: ['react', 'react-dom', '@coder.ts/foundation']
 }
