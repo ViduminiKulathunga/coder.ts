@@ -6,6 +6,7 @@ import "@coder.ts/scss/lib/Button.css";
 import "@coder.ts/scss/lib/Utilities.css";
 import "@coder.ts/scss/lib/Text.css";
 import "@coder.ts/scss/lib/Margin.css";
+import "@coder.ts/scss/lib/Select.css";
 
 const rootElement = document.querySelector("#root");
 const root = ReactDOM.createRoot(rootElement!);
