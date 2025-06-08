@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Text from '../../atoms/Text/Text.js';
 
-const Select = ({ options = [], label = "Please select an option", onOptionSelected }) => {
+const Select = ({ options = [], label = "Please select an option", onOptionSelected, renderOptions }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [overlayTop, setOverlayTop] = useState();
     const [selectedIndex, setSelectedIndex] = useState();
@@ -25,6 +25,20 @@ const Select = ({ options = [], label = "Please select an option", onOptionSelec
     }
     const renderedList = React.createElement("ul", { style: { top: overlayTop }, className: "dse-select--overlay" }, options.map((option, optionIndex) => {
         const isSelected = selectedIndex === optionIndex;
+        const renderOptionsProps = {
+            option,
+            isSelected,
+            getOptionRecommondedProps: (overrideProps = {}) => {
+                return {
+                    className: `dse-select--option ${isSelected ? 'dse-select--option--selected' : ""}`,
+                    onClick: () => handleClick(option, optionIndex),
+                    ...overrideProps
+                };
+            },
+        };
+        if (renderOptions) {
+            return renderOptions(renderOptionsProps);
+        }
         return (React.createElement("li", { className: `dse-select--option ${isSelected ? 'dse-select--option--selected' : ""}`, onClick: () => handleClick(option, optionIndex), key: option.value },
             React.createElement(Text, null, option.label),
             isSelected && React.createElement("svg", { width: "1rem", height: "1rem", xmlns: "http://www.w3.org/2000/svg", fill: "none", viewBox: "0 0 24 24", strokeWidth: 1.5, stroke: "currentColor", className: "size-6" },

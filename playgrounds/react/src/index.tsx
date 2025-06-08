@@ -20,7 +20,10 @@ root.render(
                 </Text>
             </Margin>
             <div>
-                <Select options={[{ label: "London", value: "london" }, { label: "Stockholm", value: "stockholm" }]} />
+                <Select
+                    renderOptions={({ getOptionRecommondedProps, option }) => <p key={option?.value} {...getOptionRecommondedProps()}>{option?.label}</p>}
+                    options={[{ label: "London", value: "london" }, { label: "Stockholm", value: "stockholm" }]}
+                />
             </div>
         </div>
 
