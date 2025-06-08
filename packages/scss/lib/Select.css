@@ -142,3 +142,12 @@
   background: var(--dse-form-bg-option-selected, #5ece7b);
   color: var(--dse-form-color-option-selected, #fff);
 }
+.dse-select--caret {
+  transition: all 250ms ease;
+}
+.dse-select--caret--open {
+  transform: rotate(180deg);
+}
+.dse-select--caret--closed {
+  transform: rotate(0deg);
+}

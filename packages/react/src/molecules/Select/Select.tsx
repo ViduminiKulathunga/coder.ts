@@ -68,7 +68,15 @@ const Select: React.FC<SelectProps> = ({ options = [], label = "Please select an
                 <Text>
                     {selectedIndex === undefined ? label : selectedOption?.label}
                 </Text>
-                <svg width="1rem" height="1rem" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                <svg
+                    width="1rem"
+                    height="1rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className={`dse-select--caret ${isOpen ? "dse-select--caret--open" : "dse-select--caret--close"}`} >
                     <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
             </button>
